@@ -3,7 +3,9 @@
 {% block title %}Documents index{% endblock %}
 
 {% block body %}
-    <h1>Documents index</h1>
+
+    <div class="container">
+    <h1 style="margin-top: 3%">Documents List</h1>
 
     <table class="table">
         <thead>
@@ -11,7 +13,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +23,8 @@
                 <td>{{ document.name }}</td>
                 <td>{{ document.description }}</td>
                 <td>
-                    <a href="{{ path('documents_show', {'id': document.id}) }}">show</a>
-                    <a href="{{ path('documents_edit', {'id': document.id}) }}">edit</a>
+                    <button type="button" class="btn btn-primary"  style="width:65px" onclick="location.href='{{ path('documents_show', {'id': document.id}) }}'" >Show</button>
+                    <button type="button" class="btn btn-primary" style="width:65px"  onclick="location.href='{{ path('documents_edit', {'id': document.id}) }}'" >Edit</button>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +34,8 @@
         {% endfor %}
         </tbody>
     </table>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ path('documents_new') }}'">Create new</button>
 
-    <a href="{{ path('documents_new') }}">Create new</a>
+{#    <a href="{{ path('documents_new') }}">Create new</a>#}
+    </div>
 {% endblock %}

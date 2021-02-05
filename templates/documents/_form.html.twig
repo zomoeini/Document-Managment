@@ -1,4 +1,16 @@
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{% if app.request.attributes.get('_route') == 'documents_edit' %}
+    <div class="container" style="margin-top: 5%">
+<h2>Files</h2><br>
+  {% for file in document.files %}
+<div>
+    <img src="{{ asset('http://localhost:8080/docs/public/uploads/'~ file.title) }}" alt="Image" class="img-thumbnail" style="height: 200px"><br>
+   {# <a href="{{ path('documents_delete_file', {id: file.id})}}" data-delete data-token="{{ csrf_token('delete' ~ file.id )}}">Delete</a>#}
+</div>
+{% endfor %}
+{% endif %}
+    <button class="btn" class="btn btn-primary" style="width:100px; text-align: center">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}

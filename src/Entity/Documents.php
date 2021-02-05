@@ -30,7 +30,7 @@ class Documents
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="documents", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="documents", orphanRemoval=true , cascade={"persist"})
      */
     private $files;
 

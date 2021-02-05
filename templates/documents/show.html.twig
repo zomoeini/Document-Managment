@@ -3,7 +3,8 @@
 {% block title %}Documents{% endblock %}
 
 {% block body %}
-    <h1>Documents</h1>
+    <div class="container" style="margin-top: 5%">
+    <h1>Document Details</h1>
 
     <table class="table">
         <tbody>
@@ -22,9 +23,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('documents_index') }}">back to list</a>
+    <a class="btn btn-primary" href="{{ path('documents_index') }}">back to list</a>
 
-    <a href="{{ path('documents_edit', {'id': document.id}) }}">edit</a>
+    <a class="btn btn-dark" href="{{ path('documents_edit', {'id': document.id}) }}">edit</a>
+    </div>
 
     {{ include('documents/_delete_form.html.twig') }}
 {% endblock %}
