@@ -6,7 +6,7 @@
 <h2>Files</h2><br>
   {% for file in document.files %}
 <div>
-    <img src="{{ asset('http://localhost:8080/docs/public/uploads/'~ file.title) }}" alt="Image" class="img-thumbnail" style="height: 200px"><br>
+    <img src="{{ asset('http://localhost:8080/doc/public/uploads/'~ file.title) }}" alt="Image" class="img-thumbnail" style="height: 200px"><br>
    {# <a href="{{ path('documents_delete_file', {id: file.id})}}" data-delete data-token="{{ csrf_token('delete' ~ file.id )}}">Delete</a>#}
 </div>
 {% endfor %}
